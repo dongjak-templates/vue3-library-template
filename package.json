@@ -2,6 +2,7 @@
   "name": "vue3-library-template",
   "version": "1.0.0",
   "description": "",
+  "repository": "https://github.com/dongjak-ui/table-ag.git",
   "main": "index.js",
   "scripts": {
     "build": "rimraf dist && vue-tsc && vite build"
