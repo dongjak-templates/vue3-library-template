@@ -8,7 +8,7 @@
     "build": "rimraf dist && vue-tsc && vite build"
   },
   "keywords": [],
-  "author": "",
+  "author": "cruldra",
   "license": "ISC",
   "peerDependencies": {
     "vue": "^3.3.4"

@@ -12,6 +12,6 @@ const packageJson = JSON.parse(packageJsonContent);
 
 // 更新 package.json 文件中的 repository 字段
 packageJson.repository = process.argv[2];
+packageJson.name = process.argv[2];
+packageJson.author= process.argv[3];
 fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
-
-console.log(`repository 已更新为 ${process.argv[2]}`);

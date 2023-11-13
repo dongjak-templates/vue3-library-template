@@ -1,4 +1,4 @@
-name: Update Repository Field
+name: Template Cleanup
 
 on:
   push:
@@ -17,7 +17,7 @@ jobs:
 
       - name: Update package.json
         run: |
-          node .github/template-cleanup/scripts/update-repo.js ${{ github.event.repository.html_url }}
+          node .github/template-cleanup/scripts/update-package-json.js ${{ github.event.repository.html_url }} ${{ github.event.repository.owner.login }}
           # Commit modified files
       - name: Commit files
         run: |
