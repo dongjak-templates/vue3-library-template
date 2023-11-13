@@ -8,6 +8,8 @@ permissions:
 jobs:
   prepare:
     runs-on: ubuntu-latest
+    outputs:
+      token: ${{ steps.check.outputs.token }}
     steps:
       - name: Check if NPM_TOKEN is set
         id: check
@@ -18,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: prepare
     name: Publish to NPM
-    if: github.event.repository.name != 'vue3-library-template' && steps.prepare.outputs.token != ''
+    if: github.event.repository.name != 'vue3-library-template' && needs.prepare.outputs.token != ''
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
