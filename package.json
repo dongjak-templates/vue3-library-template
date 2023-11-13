@@ -2,14 +2,18 @@
   "name": "vue3-library-template",
   "version": "1.0.0",
   "description": "",
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": "https://github.com/cruldra/vue3-library-template.git",
   "main": "index.js",
   "scripts": {
-    "build": "rimraf dist && vue-tsc && vite build"
+    "build": "rimraf dist && vue-tsc && vite build",
+    "semantic-release": "semantic-release"
   },
   "keywords": [],
   "author": "cruldra",
-  "license": "ISC",
+  "license": "MIT",
   "peerDependencies": {
     "vue": "^3.3.4"
   },
@@ -20,6 +24,13 @@
     "typescript": "^5.2.2",
     "unocss": "^0.57.3",
     "vite": "^4.5.0",
-    "vue-tsc": "^1.8.22"
+    "vue-tsc": "^1.8.22",
+    "@semantic-release/changelog": "^6.0.3",
+    "semantic-release": "^22.0.0",
+    "@semantic-release/commit-analyzer": "^10.0.4",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^9.0.6",
+    "@semantic-release/npm": "^11.0.0",
+    "@semantic-release/release-notes-generator": "^11.0.7"
   }
 }
