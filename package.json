@@ -17,6 +17,7 @@
     "@vitejs/plugin-vue": "^4.4.1",
     "rimraf": "^5.0.5",
     "typescript": "^5.2.2",
+    "unocss": "^0.57.3",
     "vite": "^4.5.0",
     "vue-tsc": "^1.8.22"
   }

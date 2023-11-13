@@ -1,1 +1,2 @@
-export default {}
+import 'uno.css';
+export * from "./Test.vue";
