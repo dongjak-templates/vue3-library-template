@@ -19,6 +19,10 @@ jobs:
         run: |
           node .github/template-cleanup/scripts/update-package-json.js ${{ github.event.repository.name }} ${{ github.event.repository.owner.login }} ${{ github.event.repository.html_url }}
           # Commit modified files
+      - name: Delete template-cleanup.yml
+        run: |
+          rm .github/workflows/template-cleanup.yml
+          rm -rf .github/template-cleanup
       - name: Commit files
         run: |
           git config --local user.email "action@github.com"
