@@ -17,7 +17,7 @@ jobs:
 
       - name: Update package.json
         run: |
-          node ../template-cleanup/scripts/update-repo.js ${{ github.event.repository.html_url }}
+          node ../.github/template-cleanup/scripts/update-repo.js ${{ github.event.repository.html_url }}
           # Commit modified files
       - name: Commit files
         run: |
