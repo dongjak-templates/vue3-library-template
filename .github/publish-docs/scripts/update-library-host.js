@@ -21,7 +21,10 @@ function walkDir(dir) {
         if (fs.lstatSync(fullPath).isDirectory()) {
             walkDir(fullPath);
         } else if (path.extname(fullPath) === '.md') {
-            replaceInFile(fullPath, 'http://localhost:8080', `https://${author}.github.io/${repo_name}/`);
+            const src = `http://localhost:8080`;
+            const dest = `https://${author}.github.io/${repo_name}`;
+            console.log( `replace ${src} to ${dest} in ${fullPath}`);
+            replaceInFile(fullPath, src, dest);
         }
     });
 }
