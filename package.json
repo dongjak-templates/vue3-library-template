@@ -8,10 +8,11 @@
   "repository": "https://github.com/cruldra/vue3-library-template.git",
   "main": "index.js",
   "scripts": {
-    "build": "rimraf dist && vue-tsc && vite build && copyfiles -f ./dist/* ./docs/.vuepress/public/lib",
+    "build": "rimraf dist && vue-tsc && vite build && pnpm run copy-library-files",
+    "copy-library-files": "copyfiles -f ./dist/* ./docs/.vuepress/public/lib",
     "semantic-release": "semantic-release",
-    "docs:dev": "rimraf dist && pnpm run build && copyfiles -f ./dist/* ./docs/.vuepress/public/lib && vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:dev": "pnpm run build && pnpm run copy-library-files && vuepress dev docs",
+    "docs:build": "pnpm run build && pnpm run copy-library-files && vuepress build docs"
   },
   "keywords": [],
   "author": "cruldra",
