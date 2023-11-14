@@ -19,24 +19,13 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  prepare:
-    runs-on: ubuntu-latest
-    outputs:
-      pages_enabled: ${{ steps.check.outputs.pages_enabled }}
-    if: github.event.repository.name != 'vue3-library-template'
-    steps:
-      - name: Run if Pages is enabled
-        id: check
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: echo "pages_enabled=$(if [ -f .pages_enabled ]; then echo 'true'; else echo 'false'; fi)">>$GITHUB_OUTPUT
   Publish-Docs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     name: Publish Docs
     runs-on: ubuntu-latest
-    if: github.event.repository.name != 'vue3-library-template' && needs.prepare.outputs.pages_enabled == 'true'
+    if: github.event.repository.name != 'vue3-library-template'
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -65,7 +54,7 @@ jobs:
         uses: actions/configure-pages@v3
       - name: Update Library Host
         run: |
-          node .github/template-cleanup/scripts/update-library-name.js ${{ github.event.repository.name }}
+          node .github/publish-docs/scripts/update-library-name.js ${{ github.event.repository.name }}
           node .github/publish-docs/scripts/update-library-host.js ${{ github.event.repository.name }} ${{ github.event.repository.owner.login }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
