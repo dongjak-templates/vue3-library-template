@@ -1,9 +1,15 @@
 import {hopeTheme} from "vuepress-theme-hope";
-import {zhNavbar} from "./navbar/index.js";
-import {zhSidebar} from "./sidebar/index.js";
+import {zhNavbar} from "./navbar";
+import {zhSidebar} from "./sidebar";
+import path from "path";
+import fs from "fs";
 
+const projectRoot = path.resolve(__dirname, '../../');
 const hostname =
     process.env["HOSTNAME"] || "https://theme-hope-docs-demo.vuejs.press";
+const packageJsonPath = path.join(projectRoot, 'package.json');
+const packageJsonContent = fs.readFileSync(packageJsonPath, 'utf8');
+const packageJson = JSON.parse(packageJsonContent);
 
 export default hopeTheme(
     {
@@ -19,7 +25,7 @@ export default hopeTheme(
 
         logo: "/logo.svg",
 
-        repo: "cruldra/notes",
+        repo: `${packageJson.author}/${packageJson.name}`,
 
         docsDir: "demo/theme-docs/src",
 
