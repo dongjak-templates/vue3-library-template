@@ -10,6 +10,7 @@ const docsDir = path.join(currentDirectory, 'docs');
 function replaceInFile(filePath, searchValue, replaceValue) {
     const fileContent = fs.readFileSync(filePath, 'utf8');
     const newContent = fileContent.replace(new RegExp(searchValue, 'g'), replaceValue);
+    console.log(`replace ${searchValue} to ${replaceValue} in ${filePath}, newContent: ${newContent}`)
     fs.writeFileSync(filePath, newContent, 'utf8');
 }
 function walkDir(dir) {

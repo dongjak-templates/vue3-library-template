@@ -12,6 +12,7 @@ const docsDir = path.join(currentDirectory, 'docs');
 function replaceInFile(filePath, searchValue, replaceValue) {
     const fileContent = fs.readFileSync(filePath, 'utf8');
     const newContent = fileContent.replace(new RegExp(searchValue, 'g'), replaceValue);
+    console.log(`replace ${searchValue} to ${replaceValue} in ${filePath}, newContent: ${newContent}`)
     fs.writeFileSync(filePath, newContent, 'utf8');
 }
 
@@ -21,10 +22,7 @@ function walkDir(dir) {
         if (fs.lstatSync(fullPath).isDirectory()) {
             walkDir(fullPath);
         } else if (path.extname(fullPath) === '.md') {
-            const src = `http://localhost:8080`;
-            const dest = `https://${author}.github.io/${repo_name}`;
-            console.log( `replace ${src} to ${dest} in ${fullPath}`);
-            replaceInFile(fullPath, src, dest);
+            replaceInFile(fullPath, `http://localhost:8080`, `https://${author}.github.io/${repo_name}`);
         }
     });
 }
