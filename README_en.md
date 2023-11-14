@@ -4,7 +4,7 @@
 
 This module can help you quickly create your own Vue component library. It contains the following functions:
 
-- [x] ts support
+- [x] vue3+ts
 - [x] packaged with vite
 - [x] unocss support
 - [x] automatically generate documents using [vue press2](https://v2.vuepress.vuejs.org/)+[hope theme](https://theme-hope.vuejs.press/)

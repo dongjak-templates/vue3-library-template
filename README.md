@@ -3,7 +3,7 @@
 # 简介
 
 这个模块可以帮助你快速创建一个自己的Vue组件库,它包含了以下功能:
-- [x]  ts支持
+- [x]  vue3+ts
 - [x]  使用vite打包
 - [x]  unocss支持
 - [x]  使用[vue press2](https://v2.vuepress.vuejs.org/)+[hope主题](https://theme-hope.vuejs.press/)自动生成文档
