@@ -3,7 +3,7 @@
 </script>
 
 <template>
-<div class="w-full"></div>
+<div class="w-full">ComponentA</div>
 </template>
 
 <style scoped>

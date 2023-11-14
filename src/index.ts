@@ -1,3 +1,8 @@
 import 'uno.css';
-export * as ComponentA from "./componentA";
-export * as ComponentB  from "./componentB";
+import ComponentA from './ComponentA.vue';
+import ComponentB from './ComponentB.vue';
+
+export {
+    ComponentA,
+    ComponentB
+};

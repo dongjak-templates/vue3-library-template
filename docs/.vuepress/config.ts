@@ -1,11 +1,11 @@
-import {defineUserConfig} from "vuepress";
+import {defineUserConfig, viteBundler} from "vuepress";
 import theme from "./theme.js";
 import {searchProPlugin} from "vuepress-plugin-search-pro";
 import {cut} from "nodejs-jieba";
 
 const base = <"/" | `/${string}/`>process.env["BASE"] || "/";
 
-
+//https://vuepress.github.io/zh/reference/config.html
 export default defineUserConfig({
     base,
     lang: "zh-CN",
@@ -18,7 +18,12 @@ export default defineUserConfig({
             description: "vuepress-theme-hope 的文档演示",
         },
     },
+    bundler: viteBundler({
+        viteOptions: {
 
+        },
+        vuePluginOptions: {},
+    }),
     theme,
     shouldPrefetch: false,
     plugins: [

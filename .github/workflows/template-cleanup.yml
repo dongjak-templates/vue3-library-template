@@ -19,6 +19,9 @@ jobs:
         run: |
           node .github/template-cleanup/scripts/update-package-json.js ${{ github.event.repository.name }} ${{ github.event.repository.owner.login }} ${{ github.event.repository.html_url }}
           # Commit modified files
+      - name: Update Library name
+        run: |
+          node .github/template-cleanup/scripts/update-library-name.js ${{ github.event.repository.name }}
       - name: Delete template-cleanup.yml
         run: |
           rm .github/workflows/template-cleanup.yml

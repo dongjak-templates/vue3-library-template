@@ -1,4 +1,4 @@
-// update-repo.js
+// update-package-json.js
 const fs = require('fs');
 const path = require('path');
 
