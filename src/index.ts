@@ -1,2 +1,3 @@
 import 'uno.css';
-export * from "./Test.vue";
+export * as ComponentA from "./componentA";
+export * as ComponentB  from "./componentB";
