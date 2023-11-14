@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       token: ${{ steps.check.outputs.token }}
+    if: github.event.repository.name != 'vue3-library-template'
     steps:
       - name: Check if NPM_TOKEN is set
         id: check
