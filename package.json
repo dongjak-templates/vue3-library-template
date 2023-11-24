@@ -1,11 +1,11 @@
 {
-  "name": "vue3-library-template",
+  "name": "{{repo_name}}",
   "version": "1.0.0",
   "description": "",
   "publishConfig": {
     "access": "public"
   },
-  "repository": "https://github.com/cruldra/vue3-library-template.git",
+  "repository": "{{repo_url}}",
   "main": "index.js",
   "scripts": {
     "build": "rimraf dist && vue-tsc && vite build && pnpm run copy-library-files",
@@ -24,11 +24,11 @@
     "src",
     "dist"
   ],
-  "module": "./dist/vue3-library-template.es.js",
+  "module": "./dist/{{repo_name}}.es.js",
   "exports": {
     ".": {
       "types": "./dist/types/index.d.ts",
-      "import": "./dist/vue3-library-template.es.js"
+      "import": "./dist/{{repo_name}}.es.js"
     },
     "./dist/style.css": "./dist/style.css"
   },
