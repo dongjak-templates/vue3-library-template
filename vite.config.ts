@@ -1,22 +1,23 @@
 import {defineConfig} from "vite";
 import vue from '@vitejs/plugin-vue';
-import pkg from './package.json'; // 导入 package.json 文件
 import path from "path";
 import UnoCSS from 'unocss/vite'
-import '@dongjak-extensions/lang'
-
-const libraryName = pkg.name.substringAfterLast$ext("/")
 module.exports = defineConfig({
     plugins: [
         vue(),
         UnoCSS()
     ], // to process SFC
+    resolve: {
+        alias: {
+            '@': path.resolve(__dirname, '.', './src/'),
+        },
+    },
     build: {
         lib: {
             entry: path.resolve(__dirname, 'src/index.ts'),
-            name: libraryName,
+            name: "{{repo_name}}",
             formats: ['es', 'umd'], // adding 'umd' requires globals set to every external module
-            fileName: (format) => `${libraryName}.${format}.js`,
+            fileName: (format) => `{{repo_name}}.${format}.js`,
         },
         rollupOptions: {
             // 预依赖(peerDependencies)的模块不要打包到库中
