@@ -25,14 +25,16 @@ order: 1
 <template>
   <ComponentA />
 </template>
-
+<style>
+  @import "http://localhost:8080/lib/style.css";
+</style>
 ```
 @import
 
 ```json
 {
   "imports": {
-    "vue3-library-template": "http://localhost:8080/lib/vue3-library-template.es.js"
+    "vue3-library-template": "http://localhost:8080/lib/{{repo_name}}.es.js"
   }
 }
 ```
